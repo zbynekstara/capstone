@@ -1,0 +1,2 @@
+ssh-add ~/.ssh/github_nyuad
+git clone git@github.abudhabi.nyu.edu:zs633/Capstone.git

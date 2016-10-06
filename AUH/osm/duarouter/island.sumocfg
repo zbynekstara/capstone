@@ -1,0 +1,16 @@
+<configuration>
+    <files>
+        <net-file value="F:\Capstone\AUH\osm\island.net.xml"/>
+        <route-files value="island.rou.xml"/>
+        <additional-files value="island.add.xml"/>
+    </files>
+    <process>
+        <begin value="0"/>
+        <end value="3600"/>
+        <routing-algorithm value="astar"/>
+    </process>
+    <reports>
+        <verbose value="True"/>
+        <no-warnings value="True"/>
+    </reports>
+</configuration>
