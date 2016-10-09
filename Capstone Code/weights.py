@@ -60,6 +60,7 @@ dump_edges = dump_edge_subtree.iter('edge')
 edges = edge_subtree.iter('edge')
 for dump_edge in dump_edges:
 	#print str(dump_edge.get('id'))+" + "+str(dump_edge.get('occupancy'))
+	# CHANGE THIS TO USE TRAVELTIME
 	weight = float(dump_edge.get('occupancy',0.0))
 	if weight > 100.0: # is this necessary? how can occupancy be >100% though?
 		weight = 100.0
@@ -106,7 +107,6 @@ edge_tree.write(weights_edge_file,encoding='UTF-8',xml_declaration=True)
 
 # CLOSE FILES
 print "close files"
-
 node_file.close()
 edge_file.close()
 dump_file.close()

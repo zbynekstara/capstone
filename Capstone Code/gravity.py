@@ -196,7 +196,7 @@ def get_distances(coords):
 	while index < len(coords):
 		first_coord = coords[index-1]
 		second_coord = coords[index]
-		distances.append(math.hypot(abs(first_coord[0]-second_coord[0]),abs(first_coord[1]-second_coord[1]))) # hypotenouse
+		distances.append(math.hypot(abs(first_coord[0]-second_coord[0]),abs(first_coord[1]-second_coord[1]))) # hypotenuse
 		index += 1
 	#print distances
 	return distances
@@ -330,7 +330,7 @@ while len(element_queue) != 0:
 		# we know x and y of previous spot
 		previous_x = previous_positions[0]
 		previous_y = previous_positions[1]
-		# we know the distance to the new spot = hypotenouse
+		# we know the distance to the new spot = hypotenuse
 		# we know the atan2 bearing to the new spot = alpha
 		bearing_to_new = next(bearings_iter)
 		# we want to find out the length of opp and adj		
