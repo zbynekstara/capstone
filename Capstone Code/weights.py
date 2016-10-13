@@ -59,12 +59,13 @@ print "apply weights to edges"
 dump_edges = dump_edge_subtree.iter('edge')
 edges = edge_subtree.iter('edge')
 for dump_edge in dump_edges:
-	#print str(dump_edge.get('id'))+" + "+str(dump_edge.get('occupancy'))
-	# CHANGE THIS TO USE TRAVELTIME
-	weight = float(dump_edge.get('occupancy',0.0))
-	if weight > 100.0: # is this necessary? how can occupancy be >100% though?
-		weight = 100.0
-	next(edges).set('weight', str(weight))
+	edge = next(edges)
+
+	dump_speed = float(dump_edge.get('speed',-1.0))
+	edge.set('dump_speed',str(dump_speed))
+
+	#dump_traveltime = float(dump_edge.get('traveltime',-1.0))
+	#edge.set('dump_traveltime',str(dump_traveltime))
 
 """
 # APPLY WEIGHTS TO THE NODES

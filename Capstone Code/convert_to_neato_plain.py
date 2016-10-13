@@ -7,23 +7,37 @@ import xml.etree.ElementTree as ET
 # OPEN FILES
 print "open files"
 
-positive_node_file = open('F:\Capstone\AUH\osm\output\modified.nod.xml', 'r') # F:\Capstone\AUH\osm\output\modified.nod.xml
-negative_node_file = open('F:\Capstone\AUH\osm\output\modified.nod.xml', 'r') # F:\Capstone\AUH\osm\output\modified.nod.xml
+node_file = open('F:\Capstone\AUH\osm\output\modified.nod.xml', 'r') # F:\Capstone\AUH\osm\output\modified.nod.xml
+#positive_node_file = open('F:\Capstone\AUH\osm\output\modified.nod.xml', 'r') # F:\Capstone\AUH\osm\output\modified.nod.xml
+#negative_node_file = open('F:\Capstone\AUH\osm\output\modified.nod.xml', 'r') # F:\Capstone\AUH\osm\output\modified.nod.xml
 edge_file = open('F:\Capstone\AUH\osm\output\modified.edg.xml', 'r') # F:\Capstone\AUH\osm\output\modified.edg.xml
 con_file =  open('F:\Capstone\AUH\osm\plain\island.con.xml', 'r') # F:\Capstone\AUH\osm\plain\island.con.xml
 tll_file =  open('F:\Capstone\AUH\osm\plain\island.tll.xml', 'r') # F:\Capstone\AUH\osm\plain\island.tll.xml
-graphviz_positive_file = open('F:\Capstone\AUH\osm\output\graphviz.pos.out.gv', 'r') # F:\Capstone\AUH\osm\output\graphviz.pos.out.gv
-graphviz_negative_file = open('F:\Capstone\AUH\osm\output\graphviz.neg.out.gv', 'r') # F:\Capstone\AUH\osm\output\graphviz.neg.out.gv
+graphviz_file = open('F:\Capstone\AUH\osm\output\graphviz.out.gv', 'r') # F:\Capstone\AUH\osm\output\graphviz.out.gv
+#graphviz_positive_file = open('F:\Capstone\AUH\osm\output\graphviz.pos.out.gv', 'r') # F:\Capstone\AUH\osm\output\graphviz.pos.out.gv
+#graphviz_negative_file = open('F:\Capstone\AUH\osm\output\graphviz.neg.out.gv', 'r') # F:\Capstone\AUH\osm\output\graphviz.neg.out.gv
 
-graphviz_positive_node_file = open('F:\Capstone\AUH\osm\output\graphviz.pos.nod.xml', 'w') # F:\Capstone\AUH\osm\output\graphviz.pos.nod.xml
-graphviz_negative_node_file = open('F:\Capstone\AUH\osm\output\graphviz.neg.nod.xml', 'w') # F:\Capstone\AUH\osm\output\graphviz.neg.nod.xml
+graphviz_node_file = open('F:\Capstone\AUH\osm\output\graphviz.nod.xml', 'w') # F:\Capstone\AUH\osm\output\graphviz.nod.xml
+#graphviz_positive_node_file = open('F:\Capstone\AUH\osm\output\graphviz.pos.nod.xml', 'w') # F:\Capstone\AUH\osm\output\graphviz.pos.nod.xml
+#graphviz_negative_node_file = open('F:\Capstone\AUH\osm\output\graphviz.neg.nod.xml', 'w') # F:\Capstone\AUH\osm\output\graphviz.neg.nod.xml
 graphviz_edge_file = open('F:\Capstone\AUH\osm\output\graphviz.edg.xml', 'w') # F:\Capstone\AUH\osm\output\graphviz.edg.xml
 graphviz_con_file = open('F:\Capstone\AUH\osm\output\graphviz.con.xml', 'w') # F:\Capstone\AUH\osm\output\graphviz.con.xml
 graphviz_tll_file = open('F:\Capstone\AUH\osm\output\graphviz.tll.xml', 'w') # F:\Capstone\AUH\osm\output\graphviz.tll.xml
 
 # READ NODE FILE TO GET NODES
 print "read node files"
-positive_node_tree = ET.parse(positive_node_file)
+node_tree = ET.parse(node_file)
+node_root = node_tree.getroot()
+
+file_nodes = node_root.iter('node')
+node_subtree = ET.Element('node_subtree_root')
+node_len = 0
+for file_node in file_nodes:
+	node_subtree.append(file_node)
+	node_len += 1
+print str(node_len)
+
+"""positive_node_tree = ET.parse(positive_node_file)
 positive_node_root = positive_node_tree.getroot()
 
 positive_file_nodes = positive_node_root.iter('node')
@@ -43,7 +57,7 @@ negative_node_len = 0
 for negative_file_node in negative_file_nodes:
 	negative_node_subtree.append(negative_file_node)
 	negative_node_len += 1
-print str(negative_node_len)
+print str(negative_node_len)"""
 
 # READ EDGE FILE TO GET EDGES
 print "read edge file"
@@ -70,7 +84,38 @@ tll_tree = ET.parse(tll_file)
 
 # READ GRAPHVIZ OUTPUT FILES
 print "read graphviz output files"
-graphviz_positive_nodes = []
+graphviz_nodes = []
+#bb = None
+file_string = graphviz_file.read()
+file_string = file_string.replace('\n\t\t','')
+file_lines = file_string.split('\n')
+for line in file_lines:
+	if line.startswith('\tnode_'):
+		line = line[1:]
+		line = line.replace(' -> ','\t->\t').replace('\t ','\t').replace(';','')
+		line_segments = line.split('\t')
+		if line_segments[1] != '->':
+			# this is a node definition
+			node_id = line_segments[0]
+			node_attributes = line_segments[1].split('\"')
+			node_xy = node_attributes[1].split(',')
+			node_position = (float(node_xy[0]),float(node_xy[1]))
+			graphviz_nodes.append((node_id,node_position))
+		else:
+			# this is an edge definition
+			# throw this line away
+			pass
+	elif line.startswith('\tgraph '):
+		line = line[7:]
+		line = line.replace(';','')
+		bb_segments = line.split('\"')[1].split(',')
+		bb = (float(bb_segments[0]),float(bb_segments[1]),float(bb_segments[2]),float(bb_segments[3]))
+	else: # line does not start with \tnode_ # 3 initial lines and end line
+		# throw this line away
+		pass
+# print graphviz_nodes
+
+"""graphviz_positive_nodes = []
 #positive_bb = None
 positive_file_string = graphviz_positive_file.read()
 positive_file_string = positive_file_string.replace('\n\t\t','')
@@ -130,7 +175,7 @@ for negative_line in negative_file_lines:
 	else: # line does not start with \tnode_ # 3 initial lines and end line
 		# throw this line away
 		pass
-#print negative_nodes
+#print negative_nodes"""
 
 # APPLY NEW NODE POSITIONS
 # nodes without new positions in previous version:
@@ -141,7 +186,14 @@ print "apply new node positions"
 # constants
 #netedit_bb = (0.00,0.00,18651.48,14880.02)
 
-for graphviz_positive_node in graphviz_positive_nodes:
+for graphviz_node in graphviz_nodes:
+	original_node = node_subtree.find('node[@id=\''+graphviz_node[0]+'\']')
+	original_node.set('x',str(graphviz_node[1][0]))
+	original_node.set('y',str(graphviz_node[1][1]))
+
+	#original_node.set('x',str( (graphviz_node[1][0] - bb[0])/(bb[2]-bb[0]) )
+
+"""for graphviz_positive_node in graphviz_positive_nodes:
 	original_node = positive_node_subtree.find('node[@id=\''+graphviz_positive_node[0]+'\']')
 	original_node.set('x',str(graphviz_positive_node[1][0]))
 	original_node.set('y',str(graphviz_positive_node[1][1]))
@@ -151,7 +203,7 @@ for graphviz_positive_node in graphviz_positive_nodes:
 for graphviz_negative_node in graphviz_negative_nodes:
 	original_node = negative_node_subtree.find('node[@id=\''+graphviz_negative_node[0]+'\']')
 	original_node.set('x',str(graphviz_negative_node[1][0]))
-	original_node.set('y',str(graphviz_negative_node[1][1]))
+	original_node.set('y',str(graphviz_negative_node[1][1]))"""
 
 # ERASE EDGE SHAPES
 print "erase edge shape data"
@@ -161,23 +213,27 @@ for edge in edges:
 
 # WRITE OUTPUT FILES
 print "write output files"
-positive_node_tree.write(graphviz_positive_node_file,encoding='UTF-8',xml_declaration=True)
-negative_node_tree.write(graphviz_negative_node_file,encoding='UTF-8',xml_declaration=True)
+node_tree.write(graphviz_node_file,encoding='UTF-8',xml_declaration=True)
+#positive_node_tree.write(graphviz_positive_node_file,encoding='UTF-8',xml_declaration=True)
+#negative_node_tree.write(graphviz_negative_node_file,encoding='UTF-8',xml_declaration=True)
 edge_tree.write(graphviz_edge_file,encoding='UTF-8',xml_declaration=True)
 con_tree.write(graphviz_con_file,encoding='UTF-8',xml_declaration=True)
 tll_tree.write(graphviz_tll_file,encoding='UTF-8',xml_declaration=True)
 
 # CLOSE FILES
 print "close files"
-positive_node_file.close()
-negative_node_file.close()
+node_file.close()
+#positive_node_file.close()
+#negative_node_file.close()
 edge_file.close()
 con_file.close()
 tll_file.close()
-graphviz_positive_file.close()
-graphviz_negative_file.close()
-graphviz_positive_node_file.close()
-graphviz_negative_node_file.close()
+graphviz_file.close()
+#graphviz_positive_file.close()
+#graphviz_negative_file.close()
+graphviz_node_file.close()
+#graphviz_positive_node_file.close()
+#graphviz_negative_node_file.close()
 graphviz_edge_file.close()
 graphviz_con_file.close()
 graphviz_tll_file.close()
