@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 10/06/16 11:56:18 by SUMO netconvert Version 0.27.1
+<!-- generated on 10/14/16 20:59:10 by SUMO netconvert Version 0.27.1
 <?xml version="1.0" encoding="UTF-8"?>
 
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
 
     <input>
-        <sumo-net-file value="F:\Capstone\AUH\osm\island.net.xml"/>
+        <sumo-net-file value="C:\Users\zs633\Capstone\AUH\osm\island.net.xml"/>
     </input>
 
     <output>

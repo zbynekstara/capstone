@@ -7,22 +7,22 @@ import xml.etree.ElementTree as ET
 # OPEN FILES
 print "open files"
 
-node_file = open('F:\Capstone\AUH\osm\output\modified.nod.xml', 'r') # F:\Capstone\AUH\osm\output\modified.nod.xml
+node_file = open('C:\Users\zs633\Capstone\AUH\osm\output\modified.nod.xml', 'r') # F:\Capstone\AUH\osm\output\modified.nod.xml
 #positive_node_file = open('F:\Capstone\AUH\osm\output\modified.nod.xml', 'r') # F:\Capstone\AUH\osm\output\modified.nod.xml
 #negative_node_file = open('F:\Capstone\AUH\osm\output\modified.nod.xml', 'r') # F:\Capstone\AUH\osm\output\modified.nod.xml
-edge_file = open('F:\Capstone\AUH\osm\output\modified.edg.xml', 'r') # F:\Capstone\AUH\osm\output\modified.edg.xml
-con_file =  open('F:\Capstone\AUH\osm\plain\island.con.xml', 'r') # F:\Capstone\AUH\osm\plain\island.con.xml
-tll_file =  open('F:\Capstone\AUH\osm\plain\island.tll.xml', 'r') # F:\Capstone\AUH\osm\plain\island.tll.xml
-graphviz_file = open('F:\Capstone\AUH\osm\output\graphviz.out.gv', 'r') # F:\Capstone\AUH\osm\output\graphviz.out.gv
+edge_file = open('C:\Users\zs633\Capstone\AUH\osm\output\modified.edg.xml', 'r') # F:\Capstone\AUH\osm\output\modified.edg.xml
+con_file =  open('C:\Users\zs633\Capstone\AUH\osm\plain\island.con.xml', 'r') # F:\Capstone\AUH\osm\plain\island.con.xml
+tll_file =  open('C:\Users\zs633\Capstone\AUH\osm\plain\island.tll.xml', 'r') # F:\Capstone\AUH\osm\plain\island.tll.xml
+graphviz_file = open('C:\Users\zs633\Capstone\AUH\osm\output\graphviz.out.gv', 'r') # F:\Capstone\AUH\osm\output\graphviz.out.gv
 #graphviz_positive_file = open('F:\Capstone\AUH\osm\output\graphviz.pos.out.gv', 'r') # F:\Capstone\AUH\osm\output\graphviz.pos.out.gv
 #graphviz_negative_file = open('F:\Capstone\AUH\osm\output\graphviz.neg.out.gv', 'r') # F:\Capstone\AUH\osm\output\graphviz.neg.out.gv
 
-graphviz_node_file = open('F:\Capstone\AUH\osm\output\graphviz.nod.xml', 'w') # F:\Capstone\AUH\osm\output\graphviz.nod.xml
+graphviz_node_file = open('C:\Users\zs633\Capstone\AUH\osm\output\graphviz.nod.xml', 'w') # F:\Capstone\AUH\osm\output\graphviz.nod.xml
 #graphviz_positive_node_file = open('F:\Capstone\AUH\osm\output\graphviz.pos.nod.xml', 'w') # F:\Capstone\AUH\osm\output\graphviz.pos.nod.xml
 #graphviz_negative_node_file = open('F:\Capstone\AUH\osm\output\graphviz.neg.nod.xml', 'w') # F:\Capstone\AUH\osm\output\graphviz.neg.nod.xml
-graphviz_edge_file = open('F:\Capstone\AUH\osm\output\graphviz.edg.xml', 'w') # F:\Capstone\AUH\osm\output\graphviz.edg.xml
-graphviz_con_file = open('F:\Capstone\AUH\osm\output\graphviz.con.xml', 'w') # F:\Capstone\AUH\osm\output\graphviz.con.xml
-graphviz_tll_file = open('F:\Capstone\AUH\osm\output\graphviz.tll.xml', 'w') # F:\Capstone\AUH\osm\output\graphviz.tll.xml
+graphviz_edge_file = open('C:\Users\zs633\Capstone\AUH\osm\output\graphviz.edg.xml', 'w') # F:\Capstone\AUH\osm\output\graphviz.edg.xml
+graphviz_con_file = open('C:\Users\zs633\Capstone\AUH\osm\output\graphviz.con.xml', 'w') # F:\Capstone\AUH\osm\output\graphviz.con.xml
+graphviz_tll_file = open('C:\Users\zs633\Capstone\AUH\osm\output\graphviz.tll.xml', 'w') # F:\Capstone\AUH\osm\output\graphviz.tll.xml
 
 # READ NODE FILE TO GET NODES
 print "read node files"

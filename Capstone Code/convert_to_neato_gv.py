@@ -7,12 +7,12 @@ import xml.etree.ElementTree as ET
 # OPEN FILES
 print "open files"
 
-weights_node_file = open('F:\Capstone\AUH\osm\output\weights.nod.xml', 'r') # sys.argv[1] F:\Capstone\AUH\osm\output\weights.nod.xml
-weights_edge_file = open('F:\Capstone\AUH\osm\output\weights.edg.xml', 'r') # sys.argv[1] F:\Capstone\AUH\osm\output\weights.edg.xml
+weights_node_file = open('C:\Users\zs633\Capstone\AUH\osm\output\weights.nod.xml', 'r') # sys.argv[1] F:\Capstone\AUH\osm\output\weights.nod.xml
+weights_edge_file = open('C:\Users\zs633\Capstone\AUH\osm\output\weights.edg.xml', 'r') # sys.argv[1] F:\Capstone\AUH\osm\output\weights.edg.xml
 
-modified_node_file = open('F:\Capstone\AUH\osm\output\modified.nod.xml', 'w') # F:\Capstone\AUH\osm\output\modified.nod.xml
-modified_edge_file = open('F:\Capstone\AUH\osm\output\modified.edg.xml', 'w') # F:\Capstone\AUH\osm\output\modified.edg.xml
-graphviz_file = open('F:\Capstone\AUH\osm\output\graphviz.gv', 'w') # F:\Capstone\AUH\osm\output\graphviz.gv
+modified_node_file = open('C:\Users\zs633\Capstone\AUH\osm\output\modified.nod.xml', 'w') # F:\Capstone\AUH\osm\output\modified.nod.xml
+modified_edge_file = open('C:\Users\zs633\Capstone\AUH\osm\output\modified.edg.xml', 'w') # F:\Capstone\AUH\osm\output\modified.edg.xml
+graphviz_file = open('C:\Users\zs633\Capstone\AUH\osm\output\graphviz.gv', 'w') # F:\Capstone\AUH\osm\output\graphviz.gv
 #graphviz_positive_file = open('F:\Capstone\AUH\osm\output\graphviz.pos.gv', 'w') # F:\Capstone\AUH\osm\output\graphviz.pos.gv
 #graphviz_negative_file = open('F:\Capstone\AUH\osm\output\graphviz.neg.gv', 'w') # F:\Capstone\AUH\osm\output\graphviz.neg.gv
 
@@ -105,6 +105,9 @@ for edge in edges:
 	#desired length should be traveltime
 	#weight should be real_speed = edgelen/traveltime #OR inverse of traveltime = 1/traveltime
 	speed = float(edge.get('dump_speed'))
+	if speed == 0.00:
+		# dump speed can be 0.00 - was not enough to be rounded to 0.01 but was not 0 either
+		speed = 0.004999
 	if speed == -1.0:
 		# nodes that had no cars at all
 		speed = float(edge.get('speed'))

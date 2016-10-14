@@ -2,8 +2,8 @@
 
 REM "This script converts Sumo plain files to Sumo net format"
 
-SET sumo_path=C:\Users\Zbynda\Sumo
-SET osm_path=F:\Capstone\AUH\osm
+SET sumo_path=C:\Users\zs633\Sumo
+SET osm_path=C:\Users\zs633\Capstone\AUH\osm
 SET plain_path=%osm_path%\output
 SET destination_path=%osm_path%\output_net
 

@@ -2,6 +2,6 @@
 
 REM "This script applies weights to edges"
 
-SET path="F:\Capstone\Capstone Code"
+SET path="C:\Users\zs633\Capstone\Capstone Code"
 
 START cmd.exe /K "%path%\weights.py & PAUSE & EXIT 0"

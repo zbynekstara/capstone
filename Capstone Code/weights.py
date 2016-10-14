@@ -7,12 +7,12 @@ import xml.etree.ElementTree as ET
 # OPEN FILES
 print "open files"
 
-node_file = open('F:\Capstone\AUH\osm\plain\island.nod.xml', 'r') # sys.argv[1] F:\Capstone\AUH\osm\plain\island.nod.xml
-edge_file = open('F:\Capstone\AUH\osm\plain\island.edg.xml', 'r') # sys.argv[2] F:\Capstone\AUH\osm\plain\island.edg.xml
-dump_file = open('F:\Capstone\AUH\osm\duarouter\island.dump.xml', 'r') # sys.argv[3] F:\Capstone\AUH\osm\duarouter\island.dump.xml
+node_file = open('C:\Users\zs633\Capstone\AUH\osm\plain\island.nod.xml', 'r') # sys.argv[1] F:\Capstone\AUH\osm\plain\island.nod.xml
+edge_file = open('C:\Users\zs633\Capstone\AUH\osm\plain\island.edg.xml', 'r') # sys.argv[2] F:\Capstone\AUH\osm\plain\island.edg.xml
+dump_file = open('C:\Users\zs633\Capstone\AUH\osm\duarouter\island.dump.xml', 'r') # sys.argv[3] F:\Capstone\AUH\osm\duarouter\island.dump.xml
 
-weights_node_file = open('F:\Capstone\AUH\osm\output\weights.nod.xml', 'w') # F:\Capstone\AUH\osm\output\weights.nod.xml
-weights_edge_file = open('F:\Capstone\AUH\osm\output\weights.edg.xml', 'w') # F:\Capstone\AUH\osm\output\weights.edg.xml
+weights_node_file = open('C:\Users\zs633\Capstone\AUH\osm\output\weights.nod.xml', 'w') # F:\Capstone\AUH\osm\output\weights.nod.xml
+weights_edge_file = open('C:\Users\zs633\Capstone\AUH\osm\output\weights.edg.xml', 'w') # F:\Capstone\AUH\osm\output\weights.edg.xml
 
 """
 location_list = [] # 1 # keep unchanged
