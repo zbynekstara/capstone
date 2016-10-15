@@ -108,6 +108,8 @@ for edge in edges:
 	if speed == 0.00:
 		# dump speed can be 0.00 - was not enough to be rounded to 0.01 but was not 0 either
 		speed = 0.004999
+		# this produces problems when the graph is being generated
+		# need to have a metric that takes the original length into account to preserve shapes
 	if speed == -1.0:
 		# nodes that had no cars at all
 		speed = float(edge.get('speed'))
