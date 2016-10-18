@@ -1,7 +1,7 @@
 @ECHO OFF
 
-REM "This script applies weights to edges"
+REM "This script adds dump_speed info to all edges"
 
 SET path="C:\Users\zs633\Capstone\Capstone Code"
 
-START cmd.exe /K "%path%\weights.py & PAUSE & EXIT 0"
+START cmd.exe /K "%path%\apply_weights.py & PAUSE & EXIT 0"
