@@ -8,4 +8,7 @@ SET osm_path=C:\Users\zs633\Capstone\AUH\osm
 SET destination_path=%osm_path%\plain
 
 CD /D %destination_path%
-START cmd.exe /K "%sumo_path%\netconvert -s %osm_path%\island.net.xml --plain-output-prefix island & PAUSE & EXIT 0"
+START /WAIT cmd.exe /K "%sumo_path%\netconvert -s %osm_path%\island.net.xml --plain-output-prefix island & EXIT 0"
+
+ECHO Success!
+EXIT 0

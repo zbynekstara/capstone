@@ -5,4 +5,7 @@ REM "Also creates a modified dump file for color map drawings"
 
 SET path="C:\Users\zs633\Capstone\Capstone Code"
 
-START cmd.exe /K "%path%\convert_to_gv_format.py & PAUSE & EXIT 0"
+START /WAIT cmd.exe /K "%path%\convert_to_gv_format.py & EXIT 0"
+
+ECHO Success!
+EXIT 0
