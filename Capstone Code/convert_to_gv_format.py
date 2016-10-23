@@ -61,7 +61,7 @@ print str(dump_edge_len)
 print "write nodes and edges in graphviz format and creating modified dump file"
 
 # constants
-graphviz_len_modifier = 1.0/15.0 # to get the scale of graphviz output in line with netedit output (?)
+graphviz_len_modifier = 1.0/15.0 # to get the scale of graphviz output in line with netedit output (?) # value for 0.01 min, 0.50 should have 1/(15.0*50)
 graphviz_weight_modifier = 100.0 # to tweak weighting of springs (?)
 
 min_edge_len_modifier = 0.50 * graphviz_len_modifier # nodes with weight 0 will get 1% of their length as desired edge length
