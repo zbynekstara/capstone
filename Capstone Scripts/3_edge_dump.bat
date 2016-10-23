@@ -1,7 +1,6 @@
 @ECHO OFF
 
-REM "Makes sure additional-file is modified"
-REM ECHO Did you add the edgeData line into the additional file?
+REM "Runs Sumo to create an edge dump file
 
 SET sumo_path=C:\Users\zs633\Sumo\bin
 SET osm_path=C:\Users\zs633\Capstone\AUH\osm
