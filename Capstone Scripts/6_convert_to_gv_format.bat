@@ -8,4 +8,3 @@ SET path="C:\Users\zs633\Capstone\Capstone Code"
 START /WAIT cmd.exe /K "%path%\convert_to_gv_format.py & EXIT 0"
 
 ECHO Success!
-EXIT 0

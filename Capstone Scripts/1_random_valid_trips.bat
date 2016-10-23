@@ -10,4 +10,3 @@ SET data_path=%osm_path%\data
 START /WAIT cmd.exe /K "%sumo_path%\tools\randomTrips.py -n %osm_path%\island.net.xml -o %data_path%\island.trips.xml -r %data_path%\island.rou.temp.xml -p 0.05 --validate --vclass="passenger" --vehicle-class="passenger" & EXIT 0"
 
 ECHO Success!
-EXIT 0

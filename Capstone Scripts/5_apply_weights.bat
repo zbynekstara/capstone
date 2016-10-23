@@ -7,4 +7,3 @@ SET path="C:\Users\zs633\Capstone\Capstone Code"
 START /WAIT cmd.exe /K "%path%\apply_weights.py & EXIT 0"
 
 ECHO Success!
-EXIT 0

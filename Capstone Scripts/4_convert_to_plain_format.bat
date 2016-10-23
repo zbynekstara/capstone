@@ -11,4 +11,3 @@ CD /D %destination_path%
 START /WAIT cmd.exe /K "%sumo_path%\netconvert -s %osm_path%\island.net.xml --plain-output-prefix island & EXIT 0"
 
 ECHO Success!
-EXIT 0

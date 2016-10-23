@@ -14,4 +14,3 @@ SET destination_path=%osm_path%\duarouter
 START /WAIT cmd.exe /K "%sumo_path%\duarouter -n %osm_path%\island.net.xml -t %data_path%\island.trips.xml -o %destination_path%\island.rou.xml --ignore-errors -b 0 -e 3600 --no-step-log --no-warnings & EXIT 0"
 
 ECHO Success!
-EXIT 0

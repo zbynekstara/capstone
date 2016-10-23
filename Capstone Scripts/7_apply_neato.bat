@@ -11,4 +11,3 @@ SET output_path=C:\Users\zs633\Capstone\AUH\osm\output
 START /WAIT cmd.exe /K "%graphviz_path%\neato.exe -Gepsilon=0.0001 -Gmaxiter=200 -Tgv %input_path%\graphviz.gv -o %output_path%\graphviz.out.gv -v & EXIT 0"
 
 ECHO Success!
-EXIT 0
