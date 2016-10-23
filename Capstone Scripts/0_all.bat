@@ -46,6 +46,7 @@ ECHO %DATE% %TIME%
 CALL %scripts_path%\9_convert_to_net_format
 
 ECHO Step 10: Color traffic maps
+ECHO NOTE: THIS SOMETIMES DOES NOT RUN, I DO NOT KNOW WHY - CHECK TIME
 ECHO %DATE% %TIME%
 CALL %scripts_path%\10_color_traffic_maps
 
