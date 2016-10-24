@@ -1,9 +1,8 @@
 @ECHO OFF
 
-REM "This script calls all the scripts at once (not the x ones)"
+REM "This script calls all the scripts one after another (not the x ones)"
 REM "Make sure that the additional-file line is included in Sumo config file"
-REM "Requires Python 2.7"
-REM "Requires matplotlib (available through Anaconda)"
+REM "Requires Python 2.7 and matplotlib (available through Anaconda)"
 
 SET scripts_path="C:\Users\zs633\Capstone\Capstone Scripts"
 
@@ -46,7 +45,6 @@ ECHO %DATE% %TIME%
 CALL %scripts_path%\9_convert_to_net_format
 
 ECHO Step 10: Color traffic maps
-ECHO NOTE: THIS SOMETIMES DOES NOT RUN, I DO NOT KNOW WHY - CHECK TIME
 ECHO %DATE% %TIME%
 CALL %scripts_path%\10_color_traffic_maps
 

@@ -64,7 +64,7 @@ print "write nodes and edges in graphviz format and creating modified dump file"
 graphviz_len_modifier = 1.0/15.0 # to get the scale of graphviz output in line with netedit output (?) # value for 0.01 min, 0.50 should have 1/(15.0*50)
 graphviz_weight_modifier = 100.0 # to tweak weighting of springs (?)
 
-min_edge_len_modifier = 1.00 * graphviz_len_modifier # nodes with weight 0 will get 1% of their length as desired edge length
+min_edge_len_modifier = 0.01 * graphviz_len_modifier # nodes with weight 0 will get 1% of their length as desired edge length
 max_edge_len_modifier = 1.00 * graphviz_len_modifier # nodes with weight 100 will get 100% of their length as desired edge length
 
 gv_string = "digraph G {\n"
@@ -141,7 +141,7 @@ for edge in edges:
 	#edge.set('diff_speed',str(diff_speed))
 	dump_edge.set('diff_speed',str(diff_speed))
 
-	diff_speed_ratio = diff_speed / free_speed # how much slower is traffic than it should be? 1 = same speed as free flow, 0 = no movement
+	diff_speed_ratio = diff_speed / free_speed # how much slower is traffic than it should be? 1 = no movement, 0 = same speed as free movement
 	dump_edge.set('diff_speed_ratio', str(diff_speed_ratio))
 
 	#traveltime = edge_len / speed
