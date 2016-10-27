@@ -15,6 +15,7 @@ modified_node_file = open('C:\Users\zs633\Capstone\AUH\osm\output\modified.nod.x
 modified_edge_file = open('C:\Users\zs633\Capstone\AUH\osm\output\modified.edg.xml', 'w') # F:\Capstone\AUH\osm\output\modified.edg.xml
 modified_dump_file = open('C:\Users\zs633\Capstone\AUH\osm\output\modified.dump.xml', 'w') # F:\Capstone\AUH\osm\output\modified.dump.xml
 graphviz_file = open('C:\Users\zs633\Capstone\AUH\osm\output\graphviz.gv', 'w') # F:\Capstone\AUH\osm\output\graphviz.gv
+info_file = open('C:\Users\zs633\Capstone\AUH\osm\info\google.colors.txt', 'w') # F:\Capstone\AUH\osm\output\google.colors.txt
 #graphviz_positive_file = open('F:\Capstone\AUH\osm\output\graphviz.pos.gv', 'w') # F:\Capstone\AUH\osm\output\graphviz.pos.gv
 #graphviz_negative_file = open('F:\Capstone\AUH\osm\output\graphviz.neg.gv', 'w') # F:\Capstone\AUH\osm\output\graphviz.neg.gv
 
@@ -140,9 +141,11 @@ for edge in edges:
 	diff_speed = free_speed - dump_speed
 	#edge.set('diff_speed',str(diff_speed))
 	dump_edge.set('diff_speed',str(diff_speed))
+	edge.set('diff_speed',str(diff_speed))
 
 	diff_speed_ratio = diff_speed / free_speed # how much slower is traffic than it should be? 1 = no movement, 0 = same speed as free movement
 	dump_edge.set('diff_speed_ratio', str(diff_speed_ratio))
+	edge.set('diff_speed_ratio',str(diff_speed_ratio))
 
 	#traveltime = edge_len / speed
 	#desired_edge_len = traveltime
@@ -158,14 +161,50 @@ for edge in edges:
 gv_string += "}"
 #neg_string += "}"
 
+print "sort modified edge tree"
+new_edge_root = ET.Element(edge_root.tag,attrib=edge_root.attrib)
+new_edge_tree = ET.ElementTree(new_edge_root)
+
+def getkey(elem):
+	return float(elem.get('diff_speed_ratio',0.0))
+new_edge_subtree = sorted(edge_subtree,key=getkey,reverse=True)
+
+new_edge_root.extend(new_edge_subtree)
+
+print "prepare info file"
+new_edges = new_edge_root.iter('edge')
+# google colormap in terms of diff_speed_ratio: 0.00-0.23, 0.23-0.54, 0.54-0.92, 0.92-1.00
+black_edges = 0
+red_edges = 0
+yellow_edges = 0
+green_edges = 0
+for new_edge in new_edges:
+	slowdown = float(new_edge.get('diff_speed_ratio',0.0))
+	if slowdown > 0.92:
+		black_edges += 1
+		continue
+	if slowdown > 0.54:
+		red_edges += 1
+		continue
+	if slowdown > 0.23:
+		yellow_edges += 1
+		continue
+	# else
+	green_edges += 1
+
+info_string = ""
+info_string += "black edges: "+str(black_edges)+"\n"
+info_string += "red edges: "+str(red_edges)+"\n"
+info_string += "yellow edges: "+str(yellow_edges)+"\n"
+info_string += "green edges: "+str(green_edges)+"\n"
+
 # WRITE OUTPUT FILES
 print "write output files"
 node_tree.write(modified_node_file,encoding='UTF-8',xml_declaration=True)
-edge_tree.write(modified_edge_file,encoding='UTF-8',xml_declaration=True)
+new_edge_tree.write(modified_edge_file,encoding='UTF-8',xml_declaration=True)
 dump_tree.write(modified_dump_file,encoding='UTF-8',xml_declaration=True)
 graphviz_file.write(gv_string)
-#graphviz_positive_file.write(pos_string)
-#graphviz_negative_file.write(neg_string)
+info_file.write(info_string)
 
 # CLOSE FILES
 print "close files"
@@ -176,5 +215,4 @@ modified_node_file.close()
 modified_edge_file.close()
 modified_dump_file.close()
 graphviz_file.close()
-#graphviz_positive_file.close()
-#graphviz_negative_file.close()
+info_file.close()
