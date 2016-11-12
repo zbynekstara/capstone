@@ -60531,22 +60531,14 @@
     <connection from="400528885#4" fromLane="0" to="327645516#2-AddedOnRampEdge" toLane="0" />
     <connection from="400528885#4" fromLane="1" to="327645516#2-AddedOnRampEdge" toLane="1" />
 
-    <connection from="400529759" fromLane="0" to="400529763.0" toLane="0" />
+    <connection from="400529759" fromLane="0" to="gneE91" toLane="0" />
+    <connection from="400529759" fromLane="0" to="400529763.56" toLane="0" />
 
     <connection from="400529762.0" fromLane="0" to="400529762.30" toLane="0" />
-
-    <connection from="400529762.30" fromLane="0" to="400529760" toLane="0" />
-
-    <connection from="400529763.0" fromLane="0" to="gneE91" toLane="0" />
-    <connection from="400529763.0" fromLane="0" to="400529763.56" toLane="0" />
 
     <connection from="400529763.56" fromLane="0" to="276462643.0" toLane="0" />
     <connection from="400529763.56" fromLane="0" to="276462645.0" toLane="1" />
     <connection from="400529763.56" fromLane="0" to="327528497#0.0" toLane="2" />
-
-    <connection from="400529796" fromLane="0" to="409874440" toLane="0" />
-
-    <connection from="400529797" fromLane="0" to="409874441" toLane="0" />
 
     <connection from="400529831#2.0" fromLane="0" to="400529831#2.19.0" toLane="0" />
     <connection from="400529831#2.0" fromLane="1" to="400529831#2.19.0" toLane="1" />
@@ -61927,8 +61919,8 @@
     <connection from="409874432#2-AddedOffRampEdge" fromLane="1" to="409874432#3" toLane="0" />
     <connection from="409874432#2-AddedOffRampEdge" fromLane="2" to="409874432#3" toLane="1" />
 
-    <connection from="409874432#3" fromLane="0" pass="1" to="409874432#4-AddedOnRampEdge" toLane="1" />
-    <connection from="409874432#3" fromLane="1" pass="1" to="409874432#4-AddedOnRampEdge" toLane="2" />
+    <connection from="409874432#3" fromLane="0" to="409874432#4-AddedOnRampEdge" toLane="1" />
+    <connection from="409874432#3" fromLane="1" to="409874432#4-AddedOnRampEdge" toLane="2" />
 
     <connection from="409874433#0.0" fromLane="0" to="409874433#0.216" toLane="0" />
     <connection from="409874433#0.0" fromLane="0" to="409874433#0.216" toLane="1" />
@@ -61956,13 +61948,9 @@
     <connection from="409874438#0" fromLane="2" to="409874433#2.0" toLane="2" />
     <connection from="409874438#0" fromLane="3" to="409874433#2.0" toLane="3" />
 
-    <connection from="409874439" fromLane="0" to="400529797" toLane="0" />
+    <connection from="409874439" fromLane="0" to="400529832#2-AddedOnRampEdge.0" toLane="0" />
 
-    <connection from="409874440" fromLane="0" pass="1" to="409874432#4-AddedOnRampEdge" toLane="0" />
-
-    <connection from="409874441" fromLane="0" to="400529832#2-AddedOnRampEdge.0" toLane="0" />
-
-    <connection from="409874442" fromLane="0" to="400529796" toLane="0" />
+    <connection from="409874442" fromLane="0" to="409874432#4-AddedOnRampEdge" toLane="0" />
 
     <connection from="410057377" fromLane="0" pass="1" to="26411228#10" toLane="0" />
 

@@ -28,25 +28,29 @@ ECHO Step 5: Apply weights
 ECHO %DATE% %TIME%
 CALL %scripts_path%\5_apply_weights
 
-ECHO Step 6: Convert to gv format
+ECHO Step 6: Modify names
 ECHO %DATE% %TIME%
-CALL %scripts_path%\6_convert_to_gv_format
+CALL %scripts_path%\6_modify_names
 
-ECHO Step 7: Apply Neato
+ECHO Step 7: Convert to gv format
 ECHO %DATE% %TIME%
-CALL %scripts_path%\7_apply_neato
+CALL %scripts_path%\7_convert_to_gv_format
 
-ECHO Step 8: Convert to plain format
+ECHO Step 8: Apply Neato
 ECHO %DATE% %TIME%
-CALL %scripts_path%\8_convert_to_plain_format
+CALL %scripts_path%\8_apply_neato
 
-ECHO Step 9: Convert to net format
+ECHO Step 9: Convert from gv format
 ECHO %DATE% %TIME%
-CALL %scripts_path%\9_convert_to_net_format
+CALL %scripts_path%\9_convert_from_gv_format
 
-ECHO Step 10: Color traffic maps
+ECHO Step 10: Convert to net format
 ECHO %DATE% %TIME%
-CALL %scripts_path%\10_color_traffic_maps
+CALL %scripts_path%\10_convert_to_net_format
+
+ECHO Step 11: Color traffic maps
+ECHO %DATE% %TIME%
+CALL %scripts_path%\11_color_traffic_maps
 
 ECHO All done!
 ECHO %DATE% %TIME%
