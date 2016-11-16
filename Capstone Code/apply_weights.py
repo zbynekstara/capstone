@@ -62,6 +62,64 @@ for file_dump_edge in file_dump_edges:
 	dump_edge_len += 1
 print str(dump_edge_len)
 
+# DESIGNATE QUADRANTS
+print "designate quadrants"
+nodes = node_subtree.iter('node')
+min_x = 0.0
+max_x = 0.0
+min_y = 0.0
+max_y = 0.0
+for node in nodes:
+		node_x = float(node.get('x'))
+		node_y = float(node.get('y'))
+
+		if node_x < min_x:
+			min_x = node_x
+		elif node_x > max_x:
+			max_x = node_x
+
+		if node_y < min_y:
+			min_y = node_y
+		elif node_y > max_y:
+			max_y = node_y
+
+edges = edge_subtree.iter('edge')
+dump_edges = dump_edge_subtree.iter('edge')
+for edge in edges:
+	dump_edge = next(dump_edges)
+	print edge.get('id')+" "+dump_edge.get('id')
+	assert edge.get('id') == dump_edge.get('id')
+
+	edge_from = edge.get('from')
+	edge_to = edge.get('to')
+
+	node_from = node_subtree.find('node[@id=\''+edge_from+'\']')
+	node_from_x = float(node_from.get('x'))
+	node_from_y = float(node_from.get('y'))
+
+	node_to = node_subtree.find('node[@id=\''+edge_to+'\']')
+	node_to_x = float(node_to.get('x'))
+	node_to_y = float(node_to.get('y'))
+
+	edge_avg_x = (node_from_x+node_to_x)/2.0
+	edge_avg_y = (node_from_y+node_to_y)/2.0
+
+	bb_x_size = max_x-min_x
+	bb_y_size = max_y-min_y
+
+	edge_x_quadrant = int(((edge_avg_x-min_x)/bb_x_size)*10.0)
+	if edge_x_quadrant == 10:
+		edge_x_quadrant = 9
+
+	edge_y_quadrant = int(((edge_avg_y-min_y)/bb_y_size)*10.0)
+	if edge_y_quadrant == 10:
+		edge_y_quadrant = 9
+
+	edge_quadrant = edge_x_quadrant+(10*edge_y_quadrant)
+	
+	dump_edge.set('quadrant',str(edge_quadrant))
+	#print str(edge_quadrant)
+
 # APPLY WEIGHTS TO THE EDGES
 print "apply weights to edges"
 # assumes that the list of edges exactly matches the list of weighted edges
