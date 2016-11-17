@@ -129,9 +129,10 @@ counter = 0
 for node in nodes:
 	print str(counter)
 	is_junction = bool(node.get('junction',False))
-	is_fixed = bool(node.get('fixed',False))
+	#is_fixed = bool(node.get('fixed',False))
 
-	if is_junction and is_fixed: # if this node can move things
+	#if is_junction and is_fixed: # if this node can move things
+	if is_junction: # if this node can move things
 		node_weight = float(node.get('avg_slowdown_ratio', 0.0))
 		radius = max_radius * node_weight # raindrop radius
 
@@ -160,12 +161,6 @@ for node in nodes:
 					other_node.set('x_displacement_sum',str(other_x_displacement_sum+other_x_displacement))
 					other_node.set('y_displacement_sum',str(other_y_displacement_sum+other_y_displacement))
 
-					"""other_x_displacement_num = float(other_node.get('x_displacement_num',0.0)) # incremented if doesn't exist (so zero is okay)
-					other_y_displacement_num = float(other_node.get('y_displacement_num',0.0))
-
-					other_node.set('x_displacement_num',str(other_x_displacement_num+1.0))
-					other_node.set('y_displacement_num',str(other_y_displacement_num+1.0))"""
-
 	counter += 1
 
 nodes = node_subtree.iter('node')
@@ -179,11 +174,8 @@ for node in nodes:
 	x_displacement_sum = float(node.get('x_displacement_sum',0.0))
 	y_displacement_sum = float(node.get('y_displacement_sum',0.0))
 
-	"""x_displacement_num = float(node.get('x_displacement_num',1.0)) # to avoid division by zero
-	y_displacement_num = float(node.get('y_displacement_num',1.0))"""
-
-	new_x = old_x + x_displacement_sum#(x_displacement_sum/x_displacement_num) # add the average of displacements
-	new_y = old_y + y_displacement_sum#(y_displacement_sum/y_displacement_num)
+	new_x = old_x + x_displacement_sum
+	new_y = old_y + y_displacement_sum
 
 	node.set('x',str(new_x))
 	node.set('y',str(new_y))
