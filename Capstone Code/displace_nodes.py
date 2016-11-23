@@ -9,8 +9,8 @@ print "open files"
 node_file = open('C:\Users\zs633\Capstone\AUH\osm\output\modified.nod.xml', 'r')
 edge_file = open('C:\Users\zs633\Capstone\AUH\osm\output\modified.edg.xml', 'r')
 
-lensing_node_file = open('C:\Users\zs633\Capstone\AUH\osm\output\lensing.nod.xml', 'w')
-lensing_edge_file = open('C:\Users\zs633\Capstone\AUH\osm\output\lensing.edg.xml', 'w')
+gravity_node_file = open('C:\Users\zs633\Capstone\AUH\osm\output\gravity.nod.xml', 'w')
+gravity_edge_file = open('C:\Users\zs633\Capstone\AUH\osm\output\gravity.edg.xml', 'w')
 info_file = open('C:\Users\zs633\Capstone\AUH\osm\info\stats.google.txt', 'w')
 
 # READ NODE FILE TO GET NODES
@@ -39,7 +39,7 @@ for file_edge in file_edges:
 	edge_len += 1
 print str(edge_len)
 
-# CONSTRCT TRANSLATION DICTIONARY
+"""# CONSTRCT TRANSLATION DICTIONARY
 print "construct translation dictionary"
 lensing_translation_dict = dict()
 c = 0.0 # q/r
@@ -76,7 +76,7 @@ while current_a <= 1.0000:
 
 	current_a += 0.0001
 
-#print lensing_translation_dict
+#print lensing_translation_dict"""
 
 # DESIGNATE FIXED NODES
 print "designate fixed nodes"
@@ -105,61 +105,62 @@ for node in nodes:
 		node.set('junction','True')
 		#num_junctions += 1
 
-"""#fixed_cutoff = int(0.25 * float(num_junctions)) # CONSTANT
-nodes = node_subtree.iter('node')
-#counter = 0
-for node in nodes:
-	#if counter > fixed_cutoff:
-	#	break
-
-	node_speed = float(node.get('speed',-1.0))
-	#is_junction = bool(node.get('junction',False))
-	#if is_junction:
-	if node_speed > 15: # just above 50 kph - only major roads
-		node.set('fixed','True')
-
-	#counter += 1"""
-
 # DISPLACE NODES BASED ON THE LENSING EFFECT OF MOST CONGESTED NODES
 print "displace nodes"
-max_radius = 250.0 # CONSTANT # max raindrop radius in meters - for 100% congested junction
+#max_radius = 250.0 # CONSTANT # max raindrop radius in meters - for 100% congested junction
+gravity_constant = -100000.0 # CONSTANT
+max_multiplier = 10.0 # CONSTANT
 
 nodes = node_subtree.iter('node')
 counter = 0
 for node in nodes:
 	print str(counter)
 	is_junction = bool(node.get('junction',False))
-	#is_fixed = bool(node.get('fixed',False))
 
-	#if is_junction and is_fixed: # if this node can move things
 	if is_junction: # if this node can move things
-		node_weight = float(node.get('avg_slowdown_ratio', 0.0))
-		radius = max_radius * node_weight # raindrop radius
+		this_weight = float(node.get('avg_slowdown_ratio', 0.0))
+		#radius = max_radius * this_weight # raindrop radius
 
 		this_x = float(node.get('x'))
 		this_y = float(node.get('y'))
 
 		other_nodes = node_subtree.iter('node')
 		for other_node in other_nodes:
+			other_weight = float(other_node.get('avg_slowdown_ratio',0.0))
 			is_fixed = bool(other_node.get('fixed',False))
-			if not is_fixed: # if this node can be moved
-				other_x = float(other_node.get('x'))
-				other_y = float(other_node.get('y'))
+			if is_fixed:
+				other_weight *= 0.1 # CONSTANT
+			else:
+				other_weight *= 1.0 # CONSTANT
 
-				nodes_distance = math.hypot(abs(other_x-this_x),abs(other_y-this_y)) # x
-				if nodes_distance > 0.0 and nodes_distance < radius:
-					a = round(nodes_distance/radius,4)
-					c = lensing_translation_dict[str(a)]
+			other_x = float(other_node.get('x'))
+			other_y = float(other_node.get('y'))
 
-					multiplier = c/a
-					other_x_displacement = multiplier * (other_x-this_x)
-					other_y_displacement = multiplier * (other_y-this_y)
+			nodes_distance = math.hypot(abs(other_x-this_x),abs(other_y-this_y)) # x
+			#if nodes_distance > 0.0 and nodes_distance < radius:
+			if nodes_distance > 0.0:
+				old_dist = nodes_distance
+				if old_dist < 1.0:
+					old_dist = 1.0
+				#new_dist = g * ((w1 * w2)/(old_dist^2))
+				new_dist = ((gravity_constant*this_weight*other_weight)/(math.pow(old_dist,2)))
+				multiplier = new_dist/old_dist
 
-					other_x_displacement_sum = float(other_node.get('x_displacement_sum',0.0))
-					other_y_displacement_sum = float(other_node.get('y_displacement_sum',0.0))
+				if multiplier > max_multiplier:
+					multiplier = max_multiplier
 
-					other_node.set('x_displacement_sum',str(other_x_displacement_sum+other_x_displacement))
-					other_node.set('y_displacement_sum',str(other_y_displacement_sum+other_y_displacement))
+				#a = round(nodes_distance/radius,4)
+				#c = lensing_translation_dict[str(a)]
+				#multiplier = c/a
+				
+				other_x_displacement = multiplier * (other_x-this_x)
+				other_y_displacement = multiplier * (other_y-this_y)
+
+				other_x_displacement_sum = float(other_node.get('x_displacement_sum',0.0))
+				other_y_displacement_sum = float(other_node.get('y_displacement_sum',0.0))
+
+				other_node.set('x_displacement_sum',str(other_x_displacement_sum+other_x_displacement))
+				other_node.set('y_displacement_sum',str(other_y_displacement_sum+other_y_displacement))
 
 	counter += 1
 
@@ -216,14 +217,14 @@ info_string += "green edges: "+str(green_edges)+"\n"
 
 # WRITE OUTPUT FILES
 print "write output files"
-node_tree.write(lensing_node_file,encoding='UTF-8',xml_declaration=True)
-edge_tree.write(lensing_edge_file,encoding='UTF-8',xml_declaration=True)
+node_tree.write(gravity_node_file,encoding='UTF-8',xml_declaration=True)
+edge_tree.write(gravity_edge_file,encoding='UTF-8',xml_declaration=True)
 info_file.write(info_string)
 
 # CLOSE FILES
 print "close files"
 node_file.close()
 edge_file.close()
-lensing_node_file.close()
-lensing_edge_file.close()
+gravity_node_file.close()
+gravity_edge_file.close()
 info_file.close()

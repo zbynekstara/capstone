@@ -8,6 +8,6 @@ SET plain_path=%osm_path%\plain
 SET output_path=%osm_path%\output
 SET destination_path=%osm_path%\output_net
 
-START /WAIT cmd.exe /K "%sumo_path%\netconvert -n %output_path%\lensing.nod.xml -e %output_path%\lensing.edg.xml -x %plain_path%\island.con.xml -i %plain_path%\island.tll.xml -o %destination_path%\lensing.net.xml -v --ignore-errors --ignore-errors.edge-type -X "never" -W & PAUSE & EXIT 0"
+START /WAIT cmd.exe /K "%sumo_path%\netconvert -n %output_path%\gravity.nod.xml -e %output_path%\gravity.edg.xml -x %plain_path%\island.con.xml -i %plain_path%\island.tll.xml -o %destination_path%\gravity.net.xml -v --ignore-errors --ignore-errors.edge-type -X "never" -W & PAUSE & EXIT 0"
 
 ECHO Success!
