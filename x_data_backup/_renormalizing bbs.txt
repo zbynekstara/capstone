@@ -1,0 +1,46 @@
+graphviz bb
+
+706430	+--------+
+y1	|	 |
+gbb3	|	 |
+	|	 |
+	|	 |
+	|	 |
+	|	 |
+gbb1	|	 |
+y0	|	 |
+-698980	+--------+
+	-728120	 854800
+	x0,gbb0	 x1,gbb2
+
+netedit bb
+netedit internal bb
+
+14880.02+---+-+
+	|   | |
+	|   | |
+0	+---+-+
+	0    18651.48
+
+netedit internal bb:
+get aspect ratio of gbb and of nbb:
+gar = (gbb2-gbb0)/(gbb3-gbb1) = above 1 = x longer; under 1 = y longer
+nar = (nbb2-nbb0)/(nbb3-nbb1)
+
+normalize both of them so that they have the same x!
+
+if gar/nar is above 1 = gar is bigger = x longer-er in gbb than in nbb
+	to get gbb inside nbb, we need bounding box above and below
+if gar/nar is 1 = both the same
+	no bounding boxes needed
+if gar/nar is below 1 = gar is smaller = y longer-er in gbb than in nbb
+	to get gbb inside nbb, we need boundix box left and right
+
+ok so if gar is 30/15 = 2
+and nar is 30/20 = 1.5
+(30/15)/(30/20) = 20/15 = 1.33 gbb has longerer x 
+
+
+to normalize this so that all points (x,y) from graphviz bb are inside netedit internal bb:
+a = (x-gbb0)/(gbb2-gbb0) = how far away from 0 it is when normalized to 1
+b = (a*(nibb2-nibb0))+nibb0 = renormalize to netedit internal bounding box

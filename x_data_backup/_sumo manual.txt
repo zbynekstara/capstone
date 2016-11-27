@@ -1,0 +1,56 @@
+MAIN EXECUTION PATH (AFTER MODIFYING NET FILE):
+
+GENERATING RANDOM VALID TRIPS: http://sumo.dlr.de/wiki/Tools/Trip
+REQUIRES PYTHON 2.7
+tools\randomTrips.py -n G:\Capstone\AUH\osm\island.net.xml -o G:\Capstone\AUH\osm\island.trips.xml -r G:\Capstone\AUH\osm\island.rou.temp.xml -p 0.1 --validate --vclass="passenger" --vehicle-class="passenger"
+
+GENERATING ONE-SHOT ROUTES: http://sumo.dlr.de/wiki/Tools/Assign
+DUA ONLY ONCE AT THE TIME SPECIFIED BY F
+WORKS PRETTY WELL APPARENTLY
+tools\assign\one-shot.py -f 900 -n G:\Capstone\AUH\osm\island.net.xml -t G:\Capstone\AUH\osm\island.trips.xml -L -s
+OUTPUT GENERATED INTO SUMO DIRECTORY
+
+OBTAINING EDGE DUMP FILE: http://sumo.dlr.de/wiki/Simulation/Output/Lane-_or_Edge-based_Traffic_Measures
+ADD AN ADDITIONAL-FILE DEFINITION TO SUMO CONFIG FILES
+<additional-files value="dump_900.add.xml"/>
+ADD AN EDGE DUMP LINE IN THE ADDITIONAL FILE
+<edgeData id="all" file="island.dump.xml" excludeEmpty="false"/>
+RUN SUMO SIMULATION TO OBTAIN THE DATA - ONLY FINISHES WHEN SUMO CLOSES!
+
+---------------------
+EXTRAS:
+
+OSM IMPORT: http://sumo.dlr.de/wiki/NETCONVERT
+NOT NECESSARY ANYMORE - WOULD REPLACE ALTERED NET FILE
+netconvert --osm-files G:\Capstone\AUH\osm\island.xml -o G:\Capstone\AUH\osm\island.net.xml -l G:\Capstone\AUH\osm\island.netconvert.log --geometry.remove --roundabouts.guess --ramps.guess --junctions.join --tls.guess-signals --tls.discard-simple --tls.join --keep-edges.by-vclass "passenger" --remove-edges.isolated
+
+GENERATING ROUTES WITH DUAROUTER: http://sumo.dlr.de/wiki/DUAROUTER
+QUICK AND DIRTY ALTERNATIVE TO ONE-SHOT
+USES FREE-FLOW SITUATION TO INFORM ROUTER DECISIONS
+CAUSES TRAFFIC JAMS BECAUSE OF QUESTIONABLE ROUTING DECISIONS
+duarouter -n G:\Capstone\AUH\osm\island.net.xml -t G:\Capstone\AUH\osm\island.trips.xml -o G:\Capstone\AUH\osm\island.rou.xml --ignore-errors -b 0 -e 3600 --no-step-log --no-warnings
+
+GENERATING DYNAMIC USER ASSIGNMENT ROUTES: http://sumo.dlr.de/wiki/Tools/Assign
+NEED MORE INFO ON HOW TO USE IT
+SUPER SLOW
+tools\assign\duaIterate.py -n G:\Capstone\AUH\osm\island.net.xml -t G:\Capstone\AUH\osm\island.trips.xml -b 0 -e 3600
+OUTPUT GENERATED INTO SUMO DIRECTORY
+
+GENERATING MACROSCOPIC: http://sumo.dlr.de/wiki/Tools/Assign
+NEEDS OD MATRIX FOR VEHICLES (?)
+NEEDS DAILY OD MATRIX FOR VEHICLES (?)
+NEEDS OD ZONES (?)
+
+OBTAINING USED EDGES FILE: http://sumo.dlr.de/wiki/Tools/Routes#route2sel.py
+tools/route2sel.py G:\Capstone\AUH_osm\island.sumo.rou.xml -o G:\Capstone\AUH_osm\island.sumo.usededges.txt
+
+COLOR TRAFFIC OUTPUT:
+http://sumo.dlr.de/wiki/Tools/Visualization#mpl_dump_onNet.py
+REQUIRES MATPLOTLIB
+THINK ABOUT VALUES (FIRST IS COLOR, SECOND IS WIDTH)
+tools\visualization\plot_net_dump.py -n G:\Capstone\AUH\osm\island.net.xml -i G:\Capstone\AUH\osm\island.dump.xml,G:\Capstone\AUH\osm\island.dump.xml -o G:\Capstone\AUH\osm\island.map.png -m occupancy,occupancy --default-color #808080 --default-width 2 --min-color-value 0 --max-color-value 1 --min-width-value 0 --max-width-value 1 --colormap RdYlGn_r --min-width 2 --max-width 2 --size 50,50 --xlim 2000,22000 --ylim -5000,21000 -b -v
+
+COLOR TRAFFIC OUTPUT (OLD): http://sumo.dlr.de/wiki/Tools/Visualization#mpl_dump_onNet.py
+REQUIRES MATPLOTLIB
+THINK ABOUT WHICH VALUES SHOULD BE WHICH (FIRST IS WIDTH, SECOND IS COLOR)
+tools\visualization\mpl_dump_onNet.py -n G:\Capstone\AUH\osm\island.net.xml -d G:\Capstone\AUH\osm\island.dump.xml --value entered,entered --size 10000,10000 --show

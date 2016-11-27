@@ -1,0 +1,4 @@
+<a>
+        <edgeData id="dump_900_900" freq="900" file="dump_900_900.xml" excludeEmpty="true"/>
+	<edgeData id="all" file="island.dump.xml" excludeEmpty="false"/>
+        </a>
