@@ -122,7 +122,7 @@ for node in nodes:
 
 # DISPLACE NODES BASED ON THE LENSING EFFECT OF MOST CONGESTED NODES
 print "displace nodes"
-max_radius = 900.0 # CONSTANT # max raindrop radius in meters - for 100% congested junction
+max_radius = 1000.0 # CONSTANT # max raindrop radius in meters - for 100% congested junction
 
 nodes = node_subtree.iter('node')
 counter = 0

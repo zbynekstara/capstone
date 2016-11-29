@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 11/29/16 12:57:24 by SUMO netconvert Version 0.27.1
+<!-- generated on 11/30/16 01:00:08 by SUMO netconvert Version 0.27.1
 <?xml version="1.0" encoding="UTF-8"?>
 
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
@@ -1716,6 +1716,7 @@
     <connection from="xedge_10x37" to="yedge_18x20" fromLane="0" toLane="0"/>
 
     <connection from="xedge_10x38" to="yedge_20x20" fromLane="0" toLane="0"/>
+    <connection from="xedge_10x38" to="yedge_20x19" fromLane="0" toLane="0"/>
 
     <connection from="xedge_10x39" to="yedge_19x19" fromLane="0" toLane="0"/>
     <connection from="xedge_10x39" to="xedge_10x37" fromLane="0" toLane="0"/>
@@ -3257,7 +3258,6 @@
     <connection from="xedge_20x37" to="xedge_20x35" fromLane="0" toLane="0"/>
 
     <connection from="xedge_20x38" to="yedge_20x39" fromLane="0" toLane="0"/>
-    <connection from="xedge_20x38" to="yedge_20x19" fromLane="0" toLane="0"/>
 
     <connection from="xedge_20x39" to="yedge_19x39" fromLane="0" toLane="0"/>
     <connection from="xedge_20x39" to="xedge_20x37" fromLane="0" toLane="0"/>
@@ -5821,10 +5821,9 @@
     <connection from="yedge_16x17" to="yedge_16x15" fromLane="0" toLane="0"/>
     <connection from="yedge_16x17" to="xedge_08x31" fromLane="0" toLane="0"/>
 
-    <connection from="yedge_16x18" to="xedge_16x31" fromLane="0" toLane="0"/>
-    <connection from="yedge_16x18" to="yedge_16x32" fromLane="0" toLane="0"/>
-    <connection from="yedge_16x18" to="xedge_16x32" fromLane="0" toLane="0"/>
-    <connection from="yedge_16x18" to="yedge_16x31" fromLane="0" toLane="0"/>
+    <connection from="yedge_16x18" to="xedge_10x31" fromLane="0" toLane="0"/>
+    <connection from="yedge_16x18" to="yedge_16x20" fromLane="0" toLane="0"/>
+    <connection from="yedge_16x18" to="xedge_10x32" fromLane="0" toLane="0"/>
 
     <connection from="yedge_16x19" to="xedge_09x32" fromLane="0" toLane="0"/>
     <connection from="yedge_16x19" to="yedge_16x17" fromLane="0" toLane="0"/>
@@ -6445,6 +6444,7 @@
     <connection from="yedge_20x20" to="xedge_11x39" fromLane="0" toLane="0"/>
     <connection from="yedge_20x20" to="yedge_20x22" fromLane="0" toLane="0"/>
 
+    <connection from="yedge_20x21" to="yedge_20x19" fromLane="0" toLane="0"/>
     <connection from="yedge_20x21" to="xedge_10x39" fromLane="0" toLane="0"/>
 
     <connection from="yedge_20x22" to="xedge_12x39" fromLane="0" toLane="0"/>
@@ -6496,7 +6496,6 @@
     <connection from="yedge_20x37" to="xedge_18x39" fromLane="0" toLane="0"/>
 
     <connection from="yedge_20x38" to="xedge_20x39" fromLane="0" toLane="0"/>
-    <connection from="yedge_20x38" to="yedge_20x19" fromLane="0" toLane="0"/>
 
     <connection from="yedge_20x39" to="yedge_20x37" fromLane="0" toLane="0"/>
     <connection from="yedge_20x39" to="xedge_19x39" fromLane="0" toLane="0"/>

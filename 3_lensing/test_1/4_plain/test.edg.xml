@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 11/29/16 12:57:24 by SUMO netconvert Version 0.27.1
+<!-- generated on 11/30/16 01:00:08 by SUMO netconvert Version 0.27.1
 <?xml version="1.0" encoding="UTF-8"?>
 
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
@@ -1522,7 +1522,7 @@
     <edge id="yedge_16x15" from="node_08x16" to="node_07x16" priority="5" type="highway.undefined" numLanes="1" speed="13.89" disallow="tram rail_urban rail rail_electric ship"/>
     <edge id="yedge_16x16" from="node_08x16" to="node_09x16" priority="5" type="highway.undefined" numLanes="1" speed="13.89" disallow="tram rail_urban rail rail_electric ship"/>
     <edge id="yedge_16x17" from="node_09x16" to="node_08x16" priority="5" type="highway.undefined" numLanes="1" speed="13.89" disallow="tram rail_urban rail rail_electric ship"/>
-    <edge id="yedge_16x18" from="node_09x16" to="node_16x16" priority="5" type="highway.undefined" numLanes="1" speed="13.89" disallow="tram rail_urban rail rail_electric ship"/>
+    <edge id="yedge_16x18" from="node_09x16" to="node_10x16" priority="5" type="highway.undefined" numLanes="1" speed="13.89" disallow="tram rail_urban rail rail_electric ship"/>
     <edge id="yedge_16x19" from="node_10x16" to="node_09x16" priority="5" type="highway.undefined" numLanes="1" speed="13.89" disallow="tram rail_urban rail rail_electric ship"/>
     <edge id="yedge_16x20" from="node_10x16" to="node_11x16" priority="5" type="highway.undefined" numLanes="1" speed="13.89" disallow="tram rail_urban rail rail_electric ship"/>
     <edge id="yedge_16x21" from="node_11x16" to="node_10x16" priority="5" type="highway.undefined" numLanes="1" speed="13.89" disallow="tram rail_urban rail rail_electric ship"/>
@@ -1683,7 +1683,7 @@
     <edge id="yedge_20x16" from="node_08x20" to="node_09x20" priority="5" type="highway.undefined" numLanes="1" speed="13.89" disallow="tram rail_urban rail rail_electric ship"/>
     <edge id="yedge_20x17" from="node_09x20" to="node_08x20" priority="5" type="highway.undefined" numLanes="1" speed="13.89" disallow="tram rail_urban rail rail_electric ship"/>
     <edge id="yedge_20x18" from="node_09x20" to="node_10x20" priority="5" type="highway.undefined" numLanes="1" speed="13.89" disallow="tram rail_urban rail rail_electric ship"/>
-    <edge id="yedge_20x19" from="node_20x20" to="node_09x20" priority="5" type="highway.undefined" numLanes="1" speed="13.89" disallow="tram rail_urban rail rail_electric ship"/>
+    <edge id="yedge_20x19" from="node_10x20" to="node_09x20" priority="5" type="highway.undefined" numLanes="1" speed="13.89" disallow="tram rail_urban rail rail_electric ship"/>
     <edge id="yedge_20x20" from="node_10x20" to="node_11x20" priority="5" type="highway.undefined" numLanes="1" speed="13.89" disallow="tram rail_urban rail rail_electric ship"/>
     <edge id="yedge_20x21" from="node_11x20" to="node_10x20" priority="5" type="highway.undefined" numLanes="1" speed="13.89" disallow="tram rail_urban rail rail_electric ship"/>
     <edge id="yedge_20x22" from="node_11x20" to="node_12x20" priority="5" type="highway.undefined" numLanes="1" speed="13.89" disallow="tram rail_urban rail rail_electric ship"/>
