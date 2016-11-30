@@ -30,6 +30,7 @@
 
 <meandata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/meandata_file.xsd">
     <interval begin="0.00" end="3600.00" id="all">
+        <!--node_13x07 and node_07x13-->
         <!--xedge_13x12 and xedge_13x15 and yedge_07x24 and yedge_07x27,
         and xedge_07x24 and xedge_07x27 and yedge_13x12 and yedge_13x15-->
 
