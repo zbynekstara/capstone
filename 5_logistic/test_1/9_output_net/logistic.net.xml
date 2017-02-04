@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 12/01/16 23:16:38 by SUMO netconvert Version 0.27.1
+<!-- generated on 12/09/16 02:13:56 by SUMO netconvert Version 0.27.1
 <?xml version="1.0" encoding="UTF-8"?>
 
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
 
     <input>
-        <node-files value="C:\Users\zs633\Capstone\5_logistic\test_1\7_displaced\logistic.nod.xml"/>
-        <edge-files value="C:\Users\zs633\Capstone\5_logistic\test_1\7_displaced\logistic.edg.xml"/>
-        <connection-files value="C:\Users\zs633\Capstone\5_logistic\test_1\4_plain\test.con.xml"/>
-        <tllogic-files value="C:\Users\zs633\Capstone\5_logistic\test_1\4_plain\test.tll.xml"/>
+        <node-files value="C:\Users\zs633\capstone\5_logistic\test_1\7_displaced\logistic.nod.xml"/>
+        <edge-files value="C:\Users\zs633\capstone\5_logistic\test_1\7_displaced\logistic.edg.xml"/>
+        <connection-files value="C:\Users\zs633\capstone\5_logistic\test_1\4_plain\test.con.xml"/>
+        <tllogic-files value="C:\Users\zs633\capstone\5_logistic\test_1\4_plain\test.tll.xml"/>
     </input>
 
     <output>
-        <output-file value="C:\Users\zs633\Capstone\5_logistic\test_1\9_output_net\logistic.net.xml"/>
+        <output-file value="C:\Users\zs633\capstone\5_logistic\test_1\9_output_net\logistic.net.xml"/>
     </output>
 
     <processing>

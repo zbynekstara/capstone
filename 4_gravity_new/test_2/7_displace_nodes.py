@@ -108,9 +108,9 @@ for node in nodes:
 # DISPLACE NODES BASED ON THE LENSING EFFECT OF MOST CONGESTED NODES
 print "displace nodes"
 gravity_exponent = 2.0
-gravity_constant = 10000.0
+gravity_constant = 100000000.0
 other_base_weight = 1.0
-fixed_weight_modifier = 0.1
+fixed_modifier = 0.1
 
 nodes = node_subtree.iter('node')
 counter = 0
@@ -127,31 +127,21 @@ for node in nodes:
 
 		other_nodes = node_subtree.iter('node')
 		for other_node in other_nodes:
-			#other_weight = float(other_node.get('avg_slowdown_ratio',0.0))
 			other_weight = other_base_weight
 			is_fixed = bool(other_node.get('fixed',False))
-			if is_fixed:
-				other_weight *= fixed_weight_modifier
 
 			other_x = float(other_node.get('x'))
 			other_y = float(other_node.get('y'))
 
 			nodes_distance = math.hypot(abs(other_x-this_x),abs(other_y-this_y)) # x
-			#if nodes_distance > 0.0 and nodes_distance < radius:
 			if nodes_distance > 0.0: # must not be zero
 				old_dist = nodes_distance
-				#if old_dist < 1.0:
-				#	old_dist = 1.0
-				#new_dist = g * ((w1 * w2)/(old_dist^2))
-				new_dist = ((gravity_constant*this_weight*other_weight)/(math.pow(old_dist,gravity_exponent)))
+
+				new_dist = old_dist*((gravity_constant*this_weight*other_weight)/(math.pow(old_dist,gravity_exponent)))
+				
 				multiplier = new_dist/old_dist
-
-				#if multiplier > max_multiplier:
-				#	multiplier = max_multiplier
-
-				#a = round(nodes_distance/radius,4)
-				#c = lensing_translation_dict[str(a)]
-				#multiplier = c/a
+				if is_fixed: # this node should not move as much as it normally would
+						multiplier *= fixed_modifier
 				
 				other_x_displacement = multiplier * (other_x-this_x)
 				other_y_displacement = multiplier * (other_y-this_y)
