@@ -39,45 +39,6 @@ for file_edge in file_edges:
 	edge_len += 1
 print str(edge_len)
 
-# CONSTRCT TRANSLATION DICTIONARY
-print "construct translation dictionary"
-lensing_translation_dict = dict()
-c = 0.0 # q/r
-
-# first part, calculating a based on c while lensing is possible
-current_a = 0.0000
-sum_c = 0.00000
-num_c = 0.0
-while ((c/math.sqrt(1.0-math.pow(c,2)))+c) < 1.00000:
-	a = c/math.sqrt(1.0-math.pow(c,2))
-
-	if round(a,4) != current_a: # reset for new numbers
-		current_a = round(a,4)
-		sum_c = 0.00000
-		num_c = 0
-
-	sum_c += c
-	num_c += 1.0
-
-	#print "a="+str(current_a)+" c="+str(sum_c/num_c)
-	lensing_translation_dict[str(current_a)] = round(sum_c/num_c,4)
-	
-	#b = a + c # y/r
-	c += 0.00001
-
-# second part, continuing so that b would be 1 for everything
-# this is because of the total internal reflection phenomenon
-current_a += 0.0001
-while current_a <= 1.0000:
-	c = round((1.0000-current_a),4)
-
-	#print "a="+str(current_a)+" c="+str(c)
-	lensing_translation_dict[str(current_a)] = c
-
-	current_a += 0.0001
-
-#print lensing_translation_dict
-
 # DESIGNATE FIXED NODES
 print "designate fixed nodes"
 edges = edge_subtree.iter('edge')
@@ -105,36 +66,20 @@ for node in nodes:
 		node.set('junction','True')
 		#num_junctions += 1
 
-"""#fixed_cutoff = int(0.25 * float(num_junctions)) # CONSTANT
-nodes = node_subtree.iter('node')
-#counter = 0
-for node in nodes:
-	#if counter > fixed_cutoff:
-	#	break
-
-	node_speed = float(node.get('speed',-1.0))
-	#is_junction = bool(node.get('junction',False))
-	#if is_junction:
-	if node_speed > 15: # just above 50 kph - only major roads
-		node.set('fixed','True')
-
-	#counter += 1"""
-
-# DISPLACE NODES BASED ON THE LENSING EFFECT OF MOST CONGESTED NODES
+# DISPLACE NODES
 print "displace nodes"
-max_radius = 250.0 # CONSTANT # max raindrop radius in meters - for 100% congested junction
+max_radius = 667.0
+fixed_modifier = 0.1
 
 nodes = node_subtree.iter('node')
 counter = 0
 for node in nodes:
 	print str(counter)
 	is_junction = bool(node.get('junction',False))
-	#is_fixed = bool(node.get('fixed',False))
 
-	#if is_junction and is_fixed: # if this node can move things
 	if is_junction: # if this node can move things
 		node_weight = float(node.get('avg_slowdown_ratio', 0.0))
-		radius = max_radius * node_weight # raindrop radius
+		radius = max_radius * node_weight
 
 		this_x = float(node.get('x'))
 		this_y = float(node.get('y'))
@@ -142,24 +87,32 @@ for node in nodes:
 		other_nodes = node_subtree.iter('node')
 		for other_node in other_nodes:
 			is_fixed = bool(other_node.get('fixed',False))
-			if not is_fixed: # if this node can be moved
-				other_x = float(other_node.get('x'))
-				other_y = float(other_node.get('y'))
 
-				nodes_distance = math.hypot(abs(other_x-this_x),abs(other_y-this_y)) # x
-				if nodes_distance > 0.0 and nodes_distance < radius:
-					a = round(nodes_distance/radius,4)
-					c = lensing_translation_dict[str(a)]
+			other_x = float(other_node.get('x'))
+			other_y = float(other_node.get('y'))
 
-					multiplier = c/a
-					other_x_displacement = multiplier * (other_x-this_x)
-					other_y_displacement = multiplier * (other_y-this_y)
+			nodes_distance = math.hypot(abs(other_x-this_x),abs(other_y-this_y))
+			if nodes_distance > 0.0 and radius > 0.0 and nodes_distance <= radius: # must not be zero
+				old_dist = nodes_distance
+				new_dist = -1 # x'-x
 
-					other_x_displacement_sum = float(other_node.get('x_displacement_sum',0.0))
-					other_y_displacement_sum = float(other_node.get('y_displacement_sum',0.0))
+				if (old_dist+old_dist/math.sqrt(math.pow(old_dist/radius,2.0)+1)) < radius:
+					new_dist = old_dist/math.sqrt(math.pow(old_dist/radius,2.0)+1)
+				else:
+					new_dist = radius-old_dist
+				
+				multiplier = new_dist/old_dist
+				if is_fixed: # this node should not move as much as it normally would
+					multiplier *= fixed_modifier
+				
+				other_x_displacement = multiplier * (other_x-this_x)
+				other_y_displacement = multiplier * (other_y-this_y)
 
-					other_node.set('x_displacement_sum',str(other_x_displacement_sum+other_x_displacement))
-					other_node.set('y_displacement_sum',str(other_y_displacement_sum+other_y_displacement))
+				other_x_displacement_sum = float(other_node.get('x_displacement_sum',0.0))
+				other_y_displacement_sum = float(other_node.get('y_displacement_sum',0.0))
+
+				other_node.set('x_displacement_sum',str(other_x_displacement_sum+other_x_displacement))
+				other_node.set('y_displacement_sum',str(other_y_displacement_sum+other_y_displacement))
 
 	counter += 1
 

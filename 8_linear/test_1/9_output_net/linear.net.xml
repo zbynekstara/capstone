@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 12/02/16 02:24:57 by SUMO netconvert Version 0.27.1
+<!-- generated on 02/05/17 13:33:04 by SUMO netconvert Version 0.27.1
 <?xml version="1.0" encoding="UTF-8"?>
 
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
 
     <input>
-        <node-files value="C:\Users\zs633\Capstone\8_linear\test_1\7_displaced\linear.nod.xml"/>
-        <edge-files value="C:\Users\zs633\Capstone\8_linear\test_1\7_displaced\linear.edg.xml"/>
-        <connection-files value="C:\Users\zs633\Capstone\8_linear\test_1\4_plain\test.con.xml"/>
-        <tllogic-files value="C:\Users\zs633\Capstone\8_linear\test_1\4_plain\test.tll.xml"/>
+        <node-files value="C:\Users\zs633\capstone\8_linear\test_1\7_displaced\linear.nod.xml"/>
+        <edge-files value="C:\Users\zs633\capstone\8_linear\test_1\7_displaced\linear.edg.xml"/>
+        <connection-files value="C:\Users\zs633\capstone\8_linear\test_1\4_plain\test.con.xml"/>
+        <tllogic-files value="C:\Users\zs633\capstone\8_linear\test_1\4_plain\test.tll.xml"/>
     </input>
 
     <output>
-        <output-file value="C:\Users\zs633\Capstone\8_linear\test_1\9_output_net\linear.net.xml"/>
+        <output-file value="C:\Users\zs633\capstone\8_linear\test_1\9_output_net\linear.net.xml"/>
     </output>
 
     <processing>
