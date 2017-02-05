@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 02/05/17 01:54:50 by SUMO netconvert Version 0.27.1
+<!-- generated on 02/05/17 11:20:21 by SUMO netconvert Version 0.27.1
 <?xml version="1.0" encoding="UTF-8"?>
 
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
 
     <input>
-        <sumo-net-file value="C:\Users\zs633\capstone\9_conical\test_random\0_map\test.net.xml"/>
+        <sumo-net-file value="C:\Users\zs633\capstone\10_spherical\test_random\0_map\test.net.xml"/>
     </input>
 
     <output>

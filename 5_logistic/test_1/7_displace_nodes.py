@@ -39,45 +39,6 @@ for file_edge in file_edges:
 	edge_len += 1
 print str(edge_len)
 
-"""# CONSTRCT TRANSLATION DICTIONARY
-print "construct translation dictionary"
-lensing_translation_dict = dict()
-c = 0.0 # q/r
-
-# first part, calculating a based on c while lensing is possible
-current_a = 0.0000
-sum_c = 0.00000
-num_c = 0.0
-while ((c/math.sqrt(1.0-math.pow(c,2)))+c) < 1.00000:
-	a = c/math.sqrt(1.0-math.pow(c,2))
-
-	if round(a,4) != current_a: # reset for new numbers
-		current_a = round(a,4)
-		sum_c = 0.00000
-		num_c = 0
-
-	sum_c += c
-	num_c += 1.0
-
-	#print "a="+str(current_a)+" c="+str(sum_c/num_c)
-	lensing_translation_dict[str(current_a)] = round(sum_c/num_c,4)
-	
-	#b = a + c # y/r
-	c += 0.00001
-
-# second part, continuing so that b would be 1 for everything
-# this is because of the total internal reflection phenomenon
-current_a += 0.0001
-while current_a <= 1.0000:
-	c = round((1.0000-current_a),4)
-
-	#print "a="+str(current_a)+" c="+str(c)
-	lensing_translation_dict[str(current_a)] = c
-
-	current_a += 0.0001
-
-#print lensing_translation_dict"""
-
 # DESIGNATE FIXED NODES
 print "designate fixed nodes"
 edges = edge_subtree.iter('edge')
@@ -105,10 +66,10 @@ for node in nodes:
 		node.set('junction','True')
 		#num_junctions += 1
 
-# DISPLACE NODES BASED ON THE LOGISTIC EFFECT OF MOST CONGESTED NODES
+# DISPLACE NODES
 print "displace nodes"
-max_radius = 1000.0
-steepness = 0.1
+max_radius = 667.0
+steepness = 0.01 # k
 fixed_modifier = 0.1
 
 nodes = node_subtree.iter('node')
