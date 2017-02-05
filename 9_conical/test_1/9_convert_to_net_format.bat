@@ -7,6 +7,6 @@ SET plain_path=%~dp04_plain
 SET displaced_path=%~dp07_displaced
 SET output_net_path=%~dp09_output_net
 
-START /WAIT cmd.exe /K "%sumo_path%\netconvert -n %displaced_path%\linear.nod.xml -e %displaced_path%\linear.edg.xml -x %plain_path%\test.con.xml -i %plain_path%\test.tll.xml -o %output_net_path%\linear.net.xml -v --ignore-errors --ignore-errors.edge-type -X "never" -W & PAUSE & EXIT 0"
+START /WAIT cmd.exe /K "%sumo_path%\netconvert -n %displaced_path%\conical.nod.xml -e %displaced_path%\conical.edg.xml -x %plain_path%\test.con.xml -i %plain_path%\test.tll.xml -o %output_net_path%\conical.net.xml -v --ignore-errors --ignore-errors.edge-type -X "never" -W & PAUSE & EXIT 0"
 
 ECHO Success!

@@ -9,8 +9,8 @@ print "open files"
 node_file = open('./6_prepared/modified.nod.xml', 'r')
 edge_file = open('./6_prepared/modified.edg.xml', 'r')
 
-gravity_node_file = open('./7_displaced/linear.nod.xml', 'w')
-gravity_edge_file = open('./7_displaced/linear.edg.xml', 'w')
+gravity_node_file = open('./7_displaced/conical.nod.xml', 'w')
+gravity_edge_file = open('./7_displaced/conical.edg.xml', 'w')
 info_file = open('./10d_info/stats.google.txt', 'w')
 
 # READ NODE FILE TO GET NODES
