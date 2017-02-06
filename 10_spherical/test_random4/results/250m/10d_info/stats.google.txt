@@ -1,0 +1,4 @@
+black edges: 4
+red edges: 49
+yellow edges: 676
+green edges: 251

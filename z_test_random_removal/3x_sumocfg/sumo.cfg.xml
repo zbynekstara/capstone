@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="C:\Users\zs633\capstone\z_test_random_removal\0c_new_map\test.net.xml"/>
+        <route-files value="C:\Users\zs633\capstone\z_test_random_removal\2_routes\test.rou.xml"/>
+        <additional-files value="C:\Users\zs633\capstone\z_test_random_removal\2x_add\test.add.xml"/>
+    </input>
+
+    <time>
+        <begin value="0"/>
+        <end value="3600"/>
+    </time>
+
+    <routing>
+        <routing-algorithm value="astar"/>
+    </routing>
+
+    <report>
+        <verbose value="true"/>
+        <no-warnings value="true"/>
+    </report>
+
+</configuration>
