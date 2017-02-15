@@ -68,7 +68,7 @@ for node in nodes:
 
 # DISPLACE NODES
 print "displace nodes"
-max_radius = 250.0
+max_radius = 433.0
 fixed_modifier = 0.1
 
 nodes = node_subtree.iter('node')

@@ -26,7 +26,7 @@ print str(edge_len)
 
 # REMOVE EDGES
 print "remove edges"
-removal_probability = 0.4
+removal_probability = 0.15
 
 print 'number of edges: ' + str(edge_len)
 

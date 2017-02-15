@@ -14,6 +14,6 @@ SET map_path=%~dp00_map
 SET dump_path=%~dp06_prepared
 SET output_path=%~dp010c_google_map
 
-START /WAIT cmd.exe /K "%sumo_path%\tools\visualization\plot_net_dump.py -n %map_path%\test.net.xml -i %dump_path%\modified.dump.xml,%dump_path%\modified.dump.xml -o %output_path%\google.colormap.png -m slowdown_ratio,entered --default-color #808080 --default-width 2.0 --min-color-value 0.0 --max-color-value 1.0 --min-width-value 0.0 --max-width-value 100.0 --colormap #0:#00cc00,0.229999:#00cc00,0.23:#ff6600,0.539999:#ff6600,0.54:#ff0000,0.919999:#ff0000,0.92:#660000,1:#660000 --min-width 2.0 --max-width 4.0 --size 50,50 -b -v & PAUSE & EXIT 0"
+START /WAIT cmd.exe /K "%sumo_path%\tools\visualization\plot_net_dump.py -n %map_path%\test.net.xml -i %dump_path%\modified.dump.xml,%dump_path%\modified.dump.xml -o %output_path%\google.colormap.png -m slowdown_ratio,entered --default-color #808080 --default-width 3.0 --min-color-value 0.0 --max-color-value 1.0 --min-width-value 0.0 --max-width-value 100.0 --colormap #0:#00cc00,0.229999:#00cc00,0.23:#ff6600,0.539999:#ff6600,0.54:#ff0000,0.919999:#ff0000,0.92:#660000,1:#660000 --min-width 3.0 --max-width 3.0 --size 50,50 -b -v & PAUSE & EXIT 0"
 
 ECHO Success!

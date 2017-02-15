@@ -1,0 +1,4 @@
+black edges: 0
+red edges: 0
+yellow edges: 1364
+green edges: 316
