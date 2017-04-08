@@ -2,7 +2,7 @@
 
 REM "This script displaces nodes"
 
-SET code_file=%~dp07_find_best_path.py
+SET code_file=%~dp011_find_best_path.py
 
 SET /P start_node="Start node: "
 SET /P target_node="Target node: "
