@@ -1,0 +1,29 @@
+,QU-AC-PE-GO,QU-AC-PE-DI,QU-AC-PE-VS,QU-AC-OT-GO,QU-AC-OT-DI,QU-AC-OT-VS,QU-AC-VS-GO,QU-AC-VS-DI,QU-AC-VS-VS,QU-US-PE-GO,QU-US-PE-DI,QU-US-PE-VS,QU-US-OT-GO,QU-US-OT-DI,QU-US-OT-VS,subject mean,subject st dev
+,"In general, how close do you think your paths in the color-line visualization were to the ideal path? (1 = not at all close, 5 = extremely close)","In general, how close do you think your paths in the distortion visualization were to the ideal path? (1 = not at all close, 5 = extremely close)","In general, which visualization do you think is better when it comes to helping you get close to the ideal path? (1 = color-line visualization, 5 = distortion visualization)","In general, how close do you think other people's paths in the color-line visualization were to the ideal path? (1 = not at all close, 5 = extremely close)","In general, how close do you think other people's paths in the distortion visualization were to the ideal path? (1 = not at all close, 5 = extremely close)","In general, which visualization do you think is better when it comes to helping other people get close to the ideal path? (1 = color-line visualization, 5 = distortion visualization)","In general, how close do you think the paths you provided in the color-line visualizations were to paths provided by other people taking this survey? (1 = not at all close, 5 = extremely close)","In general, how close do you think the paths you provided in the distortion visualizations were to paths provided by other people taking this survey? (1 = not at all close, 5 = extremely close)","In general, which visualization do you think is better when it comes to helping people identify paths that are close to the paths identified by other people taking this survey? (1 = color-line visualization, 5 = distortion visualization)","In general, how useful do you think the color-line visualization was? (1 = not at all useful, 5 = extremely useful)","In general, how useful do you think the distortion visualization was? (1 = not at all useful, 5 = extremely useful)","In general, which visualization do you was more useful? (1 = color-line visualization, 5 = distortion visualization)","In general, how useful do you think other people found the color-line visualization to be? (1 = not at all useful, 5 = extremely useful)","In general, how useful do you think other people found the distortion visualization to be? (1 = not at all useful, 5 = extremely useful)","In general, which visualization do you think other people found to be more usesful? (1 = color-line visualization, 5 = distortion visualization)",,
+MAR-26-17-00,0.5,0,0.5,0,0,0.5,0,0.5,0.5,-0.5,0.5,0.5,-0.5,0,0,0.17,0.36
+MAR-26-18-00,-0.5,1,1,-0.5,1,1,0,0.5,0.5,-0.5,1,1,-0.5,0,0,0.33,0.65
+MAR-26-22-00,-0.5,0.5,1,-0.5,0.5,0.5,0,0,0,-0.5,0.5,0.5,-0.5,0.5,0.5,0.17,0.49
+MAR-27-17-00,0,0,-0.5,0.5,-0.5,-1,0,0,-0.5,-0.5,-0.5,-1,-0.5,-0.5,-1,-0.40,0.43
+MAR-27-17-30,0,-0.5,0,0,0,0.5,0,-0.5,0.5,0,0.5,0.5,0,0.5,0.5,0.13,0.35
+MAR-27-19-30,0.5,0,0.5,0.5,0,0,0,0,0,0.5,0.5,0.5,0.5,0.5,0.5,0.30,0.25
+MAR-27-20-00,-0.5,0.5,0.5,-0.5,0.5,0.5,0,0,0.5,-0.5,0.5,-0.5,-0.5,0.5,-0.5,0.03,0.48
+MAR-28-10-00,-0.5,0,-1,0,-1,-1,0,-0.5,-0.5,-0.5,0,-1,-0.5,-1,-1,-0.57,0.42
+MAR-28-16-00,-0.5,-0.5,-0.5,-1,-1,-1,0,-1,-0.5,-1,-1,-1,0.5,-0.5,-0.5,-0.63,0.44
+MAR-28-17-00,0.5,0.5,0.5,-0.5,0.5,0,-0.5,0.5,-0.5,-0.5,0.5,0.5,-0.5,0.5,0,0.10,0.47
+MAR-28-19-00,0,0.5,1,0.5,0.5,1,-0.5,1,1,0.5,0.5,1,0,1,0.5,0.57,0.46
+MAR-28-20-00,-0.5,0.5,0.5,0,0.5,0.5,-0.5,1,1,0,1,1,-0.5,0.5,0,0.33,0.56
+MAR-28-21-00,-0.5,-0.5,-0.5,0,-1,-0.5,-0.5,0,-0.5,0.5,-0.5,-0.5,-0.5,0,-0.5,-0.37,0.35
+MAR-29-20-00,0.5,-0.5,-0.5,-0.5,-0.5,-1,0.5,0.5,0.5,-0.5,0,-0.5,0,-0.5,-0.5,-0.20,0.49
+MAR-29-21-00,-0.5,1,1,0,1,1,0,0.5,1,0,1,1,0,1,0.5,0.57,0.53
+MAR-30-13-30,0,0.5,0.5,0,0.5,0.5,0,1,0,0.5,0.5,0.5,0.5,1,0.5,0.43,0.32
+MAR-30-14-30,0.5,0.5,0,0,0,-1,-0.5,-0.5,-0.5,-1,0.5,0,-1,-0.5,-1,-0.30,0.56
+MAR-30-15-30,0,0,-0.5,-1,1,-0.5,-0.5,-1,-0.5,-0.5,0.5,0,-0.5,0.5,-0.5,-0.23,0.56
+MAR-30-19-00,-0.5,-0.5,-1,-0.5,-0.5,-0.5,-0.5,0,-1,-1,0,-1,-0.5,0,-0.5,-0.53,0.35
+MAR-31-15-00,0,0.5,1,0,0,0.5,0,0,0.5,-0.5,0.5,0.5,-0.5,0.5,0.5,0.23,0.42
+MAR-31-16-00,0.5,0,0,0,-0.5,0.5,-0.5,0.5,0.5,0.5,0.5,0.5,0,0.5,0.5,0.23,0.37
+MAR-31-17-30,-0.5,-0.5,-1,-0.5,-0.5,-1,-0.5,-0.5,-1,-0.5,0,-0.5,-0.5,0,-0.5,-0.53,0.30
+question mean,-0.09,0.14,0.11,-0.18,0.02,-0.02,-0.18,0.09,0.05,-0.27,0.32,0.09,-0.27,0.20,-0.11,-0.01,0.57
+question st dev,0.43,0.49,0.71,0.42,0.65,0.75,0.29,0.59,0.63,0.51,0.50,0.72,0.40,0.55,0.55,0.57,
+,,,,,,,,,,,,,,,,,
+-1 = good for GO,,,,,,,,,,,,,,,,,
+1 = good for DI,,,,,,,,,,,,,,,,,

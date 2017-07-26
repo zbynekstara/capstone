@@ -1,0 +1,34 @@
+> shapiro.test(accuracy_raw$subject.mean[1:22])
+
+	Shapiro-Wilk normality test
+
+data:  accuracy_raw$subject.mean[1:22]
+W = 0.73789, p-value = 6.184e-05
+
+> shapiro.test(accuracy_transf_norm$subject.mean[1:22])
+
+	Shapiro-Wilk normality test
+
+data:  accuracy_transf_norm$subject.mean[1:22]
+W = 0.85125, p-value = 0.003572
+
+> shapiro.test(times_raw$subject.mean[1:22])
+
+	Shapiro-Wilk normality test
+
+data:  times_raw$subject.mean[1:22]
+W = 0.90828, p-value = 0.04367
+
+> shapiro.test(times_transf_norm$subject.mean[1:22])
+
+	Shapiro-Wilk normality test
+
+data:  times_transf_norm$subject.mean[1:22]
+W = 0.96388, p-value = 0.5714
+
+> shapiro.test(questionnaire_norm$subject.mean[1:22])
+
+	Shapiro-Wilk normality test
+
+data:  questionnaire_norm$subject.mean[1:22]
+W = 0.92801, p-value = 0.1115

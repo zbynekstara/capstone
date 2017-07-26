@@ -1,0 +1,38 @@
+> cor.test(as.numeric(accuracy_transf_norm_cluster_assignment$cluster), as.numeric(times_transf_norm_cluster_assignment$cluster))
+
+	Pearson's product-moment correlation
+
+data:  as.numeric(accuracy_transf_norm_cluster_assignment$cluster) and as.numeric(times_transf_norm_cluster_assignment$cluster)
+t = 1.621, df = 30, p-value = 0.1155
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.07204085  0.57552575
+sample estimates:
+      cor 
+0.2837818 
+
+> cor.test(as.numeric(accuracy_transf_norm_cluster_assignment$cluster), as.numeric(questionnaire_norm_cluster_assignment$cluster))
+
+	Pearson's product-moment correlation
+
+data:  as.numeric(accuracy_transf_norm_cluster_assignment$cluster) and as.numeric(questionnaire_norm_cluster_assignment$cluster)
+t = -0.63718, df = 30, p-value = 0.5288
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.4462654  0.2429297
+sample estimates:
+       cor 
+-0.1155525 
+
+> cor.test(as.numeric(times_transf_norm_cluster_assignment$cluster), as.numeric(questionnaire_norm_cluster_assignment$cluster))
+
+	Pearson's product-moment correlation
+
+data:  as.numeric(times_transf_norm_cluster_assignment$cluster) and as.numeric(questionnaire_norm_cluster_assignment$cluster)
+t = -2.017, df = 30, p-value = 0.05272
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.619601672  0.003554044
+sample estimates:
+       cor 
+-0.3455682 

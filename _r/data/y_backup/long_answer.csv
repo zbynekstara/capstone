@@ -1,0 +1,35 @@
+,QU-TX-GO,QU-TX-DI
+,"What improvement(s), if any, would you suggest to make color-line visualizations more useful?","What improvement(s), if any, would you suggest to make distortion visualizations more useful?"
+MAR-26-17-00,More color variation between different traffic sates. Define how intense the traffic is,NA
+MAR-26-18-00,Quantify the time. Color alone is very hard to evaluate how long one can get from A to B.,I think it is already pretty useful by itself.
+MAR-26-22-00,Maybe the thickness of color could show how traffic it is.,Maybe the distortion could represent the exact prolongation of time taken to traverse the path.
+MAR-27-11-00,"To use colors different from red and orange as they can easily get miced up. Use blue instead of red, for example.",NA
+MAR-27-12-00,More contrast between the colors. Possibly a gradient to show the center of the congestion area as different from outlying streets around the congestion.,I am wary of people using the map too navigate when the map is distorted. I have enough trouble transferring a 2D image to the 3D reality of the streets without knowing to compute the affect distortion has on my sense of direction. However I did feel more confident navigating perceived areas of traffic.
+MAR-27-16-00,Give you the state of nearby roads where traffic is dense - so basically the spread of the traffic.,Add colors to the distortion to better represent the extent of the traffic and change color depending on density.
+MAR-27-17-00,"Make the lines broader, the colors more distinct (red vs dark red).",NA
+MAR-27-17-30,Maybe higher contrast between the rows that the traffic is dead and the parts where it is very slow (dark orange and red are a bit too similar).,At some point it was not clear if the two roads are meeting or not.
+MAR-27-19-30,I would suggest making the colors more distinct. It was hard to distinguish them at times.,I would suggest adding color to indicate a space is distorted because of traffic. How do I distinguish between the actual topography of the land and the artificial topography created by the distortion?
+MAR-27-20-00,More solid (thicker) color of the lines.,NA
+MAR-27-21-00,Some times have green color on top of the red one. The red (strong) shades are very hard to distinguish.,Clearer instruction should be nicer.
+MAR-27-21-30,NA,NA
+MAR-27-22-30,"The red was extremely hard to distinguish, perhaps it should have been a different type of line.",It was still not as intuitive as I wish the distortion visualizations to be. It was a bit hard to imagine it in 3D.
+MAR-28-10-00,More distinct color difference. Once I got used to color line it became easier for me.,NA
+MAR-28-14-00,"Use shades that are very different, for example, light and dark color.",NA
+MAR-28-16-00,Greater distinction between red and dark red.,The scattered directions of the lines made it difficult to tell whether or not I was heading into traffic.
+MAR-28-17-00,"Make the colors, especially the red, more friendly to people's eyes.",NA
+MAR-28-19-00,Make it clearer which line is which.,Further distort distances with traffic.
+MAR-28-20-00,Differentiating orange from red. Have quantitative legend.,Having a quantitative comparison.
+MAR-28-21-00,Red and orange are too similar. Lines are too thin - can't distinguish left or right road. Can be opacity of lines instead of colors might be easier to distinguish than the colors.,"Impossible to tell whether uphill or downhill contours. Need to color in between the roads with a gradation to help understand where is high altitude and low altitude. When roads are missing, cannot tell if road is high altitude or low altitude."
+MAR-29-18-00,To distinguish the orange color from the red better.,To more clearly show which bumps are higher.
+MAR-29-20-00,Bigger differences between colors - oranges and reds all kind of looked the same while greens really stood out.,Shading? Not sure how it would work but lines weren't always enough to tell which parts had heavier traffic.
+MAR-29-21-00,"Brighter contrast on colors (using blue, green, red).",Distortion would be more accurate in a 3D representation. An optimum would be a mix of the color and distortion graphs.
+MAR-30-13-30,"For the color-line viz, use easier-to-differentiate color. Red and orange look too similar.",NA
+MAR-30-14-30,"Detach the directional lane colors [illustration: make them farther apart, with a space in between]. Use line thickness to also show traffic.","Connect intersections so it is one fluid line. Contextual information, is it possible to include in distortion maps? does it matter or help? Also line weight could help (thin = most traffic?). A combination of both techniques would help to make it more obvious."
+MAR-30-15-30,"More distinct colors, perhaps black or blue replacing dark red/red in general. It was hard to tell the difference between red and orange.","It was difficult to figure out which way the bubble was going. Perhaps a gradient as well, or color."
+MAR-30-19-00,To distinguish the color better.,NA
+MAR-31-11-00,NA,NA
+MAR-31-12-00,"Indicate direction of  path of color, sometimes forget which lanes I should take, especially if red and orange close to each other.",Difference in actual length of road and stretching of road due to traffic going through should be made clearer.
+MAR-31-15-00,NA,NA
+MAR-31-16-00,Make the lines more clear so I can see the lanes.,I found the magnifying effect confusing.
+MAR-31-17-30,Perhaps making the distinction between the red and the orange shade more evident.,NA
+MAR-28-15-00,"Using colors that greatly differ in contrast such as: bright yellow, medium green, dark red, and black maybe.",NA
